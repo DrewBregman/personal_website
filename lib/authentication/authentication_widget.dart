@@ -280,9 +280,9 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget> {
                           onPressed: () async {
                             logFirebaseEvent('Button_navigate_to');
 
-                            context.pushNamed('home');
+                            context.pushNamed('forgot_password');
                           },
-                          text: 'Continue as Guest',
+                          text: 'Forgot Password?',
                           options: FFButtonOptions(
                             width: 230,
                             height: 50,
