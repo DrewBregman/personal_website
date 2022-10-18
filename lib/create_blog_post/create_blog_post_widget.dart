@@ -180,7 +180,7 @@ class _CreateBlogPostWidgetState extends State<CreateBlogPostWidget> {
                       ),
                       style: FlutterFlowTheme.of(context).subtitle1.override(
                             fontFamily: 'Poppins',
-                            color: FlutterFlowTheme.of(context).tertiaryColor,
+                            color: Color(0xFF60E5EE),
                           ),
                       textAlign: TextAlign.start,
                     ),
