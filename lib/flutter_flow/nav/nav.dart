@@ -82,15 +82,15 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => HomeWidget(),
             ),
             FFRoute(
+              name: 'authentication',
+              path: 'authentication',
+              builder: (context, params) => AuthenticationWidget(),
+            ),
+            FFRoute(
               name: 'create_blog_post',
               path: 'createBlogPost',
               requireAuth: true,
               builder: (context, params) => CreateBlogPostWidget(),
-            ),
-            FFRoute(
-              name: 'authentication',
-              path: 'authentication',
-              builder: (context, params) => AuthenticationWidget(),
             ),
             FFRoute(
               name: 'view_blogpost',

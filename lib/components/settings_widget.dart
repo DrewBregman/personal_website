@@ -1,3 +1,4 @@
+import '../auth/firebase_user_provider.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -35,6 +36,64 @@ class _SettingsWidgetState extends State<SettingsWidget> {
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          if (loggedIn)
+            Align(
+              alignment: AlignmentDirectional(-1, 0),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  FFButtonWidget(
+                    onPressed: () async {
+                      if (textController!.text == 'iws4n1') {
+                        logFirebaseEvent('Button_navigate_to');
+
+                        context.pushNamed('authentication');
+                      } else {
+                        logFirebaseEvent('Button_alert_dialog');
+                        await showDialog(
+                          context: context,
+                          builder: (alertDialogContext) {
+                            return AlertDialog(
+                              title: Text('Hm. How Could You Get it Wrong?'),
+                              content: Text(
+                                  'It was so easy! Or, does the question have nothing to do with the answer? Is there any rhyme or reason? What was the goal? What is life?'),
+                              actions: [
+                                TextButton(
+                                  onPressed: () =>
+                                      Navigator.pop(alertDialogContext),
+                                  child: Text('Try Again'),
+                                ),
+                              ],
+                            );
+                          },
+                        );
+                        logFirebaseEvent('Button_navigate_to');
+
+                        context.pushNamed('home');
+                      }
+                    },
+                    text: 'Create',
+                    options: FFButtonOptions(
+                      width: 130,
+                      height: 40,
+                      color: FlutterFlowTheme.of(context).secondaryColor,
+                      textStyle:
+                          FlutterFlowTheme.of(context).subtitle2.override(
+                                fontFamily: 'Poppins',
+                                color: Colors.white,
+                              ),
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1,
+                      ),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           Padding(
             padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
             child: Container(
