@@ -45,7 +45,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="personalwebsite" android:host="personalwebsite.com" />
+                <data android:scheme="drewbregman" android:host="personalwebsite.com" />
             </intent-filter>
 
         </activity>

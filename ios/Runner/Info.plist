@@ -40,7 +40,7 @@
         <string>personalwebsite.com</string>
         <key>CFBundleURLSchemes</key>
         <array>
-        <string>personalwebsite</string>
+        <string>drewbregman</string>
         </array>
         </dict>
     </array>
