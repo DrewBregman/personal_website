@@ -47,8 +47,9 @@ class _CreateBlogPostWidgetState extends State<CreateBlogPostWidget> {
         automaticallyImplyLeading: false,
         title: FFButtonWidget(
           onPressed: () async {
-            logFirebaseEvent('Button_navigate_back');
-            context.pop();
+            logFirebaseEvent('Button_navigate_to');
+
+            context.pushNamed('home');
           },
           text: 'Cancel',
           options: FFButtonOptions(
