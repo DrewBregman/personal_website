@@ -170,7 +170,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0, 0, 4, 0),
                                   child: Text(
-                                    listViewIndex.toString(),
+                                    '${listViewIndex.toString()}.',
                                     style:
                                         FlutterFlowTheme.of(context).bodyText1,
                                   ),
@@ -178,15 +178,31 @@ class _HomeWidgetState extends State<HomeWidget> {
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       4, 0, 0, 0),
-                                  child: Text(
-                                    listViewBlogPostRecord.title!,
-                                    style: FlutterFlowTheme.of(context)
-                                        .subtitle1
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Color(0xFF2C63F1),
-                                          decoration: TextDecoration.underline,
-                                        ),
+                                  child: InkWell(
+                                    onTap: () async {
+                                      logFirebaseEvent('Text_navigate_to');
+
+                                      context.pushNamed(
+                                        'view_blogpost',
+                                        queryParams: {
+                                          'blogPostReference': serializeParam(
+                                            listViewBlogPostRecord.reference,
+                                            ParamType.DocumentReference,
+                                          ),
+                                        }.withoutNulls,
+                                      );
+                                    },
+                                    child: Text(
+                                      listViewBlogPostRecord.title!,
+                                      style: FlutterFlowTheme.of(context)
+                                          .subtitle1
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: Color(0xFF2C63F1),
+                                            decoration:
+                                                TextDecoration.underline,
+                                          ),
+                                    ),
                                   ),
                                 ),
                                 if (loggedIn)
