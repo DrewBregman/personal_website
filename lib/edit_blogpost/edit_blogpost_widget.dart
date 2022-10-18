@@ -29,7 +29,6 @@ class _EditBlogpostWidgetState extends State<EditBlogpostWidget> {
     super.initState();
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'edit_blogpost'});
-    textController2 = TextEditingController();
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -140,6 +139,9 @@ class _EditBlogpostWidgetState extends State<EditBlogpostWidget> {
                                       );
                                       await editBlogpostBlogPostRecord.reference
                                           .update(blogPostUpdateData);
+                                      logFirebaseEvent('Button_navigate_to');
+
+                                      context.pushNamed('home');
                                     },
                                     text: 'Save',
                                     options: FFButtonOptions(
@@ -244,7 +246,10 @@ class _EditBlogpostWidgetState extends State<EditBlogpostWidget> {
                               children: [
                                 Expanded(
                                   child: TextFormField(
-                                    controller: textController2,
+                                    controller: textController2 ??=
+                                        TextEditingController(
+                                      text: editBlogpostBlogPostRecord.content,
+                                    ),
                                     autofocus: true,
                                     obscureText: false,
                                     decoration: InputDecoration(
