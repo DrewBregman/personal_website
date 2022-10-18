@@ -215,6 +215,62 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       );
                                     },
                                   ),
+                                if (loggedIn)
+                                  FlutterFlowIconButton(
+                                    borderColor: Colors.transparent,
+                                    borderRadius: 30,
+                                    borderWidth: 1,
+                                    buttonSize: 60,
+                                    icon: Icon(
+                                      Icons.delete,
+                                      color: Color(0xFFE53838),
+                                      size: 30,
+                                    ),
+                                    onPressed: () async {
+                                      logFirebaseEvent(
+                                          'IconButton_alert_dialog');
+                                      var confirmDialogResponse =
+                                          await showDialog<bool>(
+                                                context: context,
+                                                builder: (alertDialogContext) {
+                                                  return AlertDialog(
+                                                    title: Text(
+                                                        'Do you want to delete this post?'),
+                                                    content: Text(
+                                                        'DELETE THIS POST?'),
+                                                    actions: [
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext,
+                                                                false),
+                                                        child: Text('Cancel'),
+                                                      ),
+                                                      TextButton(
+                                                        onPressed: () =>
+                                                            Navigator.pop(
+                                                                alertDialogContext,
+                                                                true),
+                                                        child: Text('Confirm'),
+                                                      ),
+                                                    ],
+                                                  );
+                                                },
+                                              ) ??
+                                              false;
+                                      if (confirmDialogResponse) {
+                                        logFirebaseEvent(
+                                            'IconButton_backend_call');
+                                        await listViewBlogPostRecord.reference
+                                            .delete();
+                                      } else {
+                                        logFirebaseEvent(
+                                            'IconButton_navigate_to');
+
+                                        context.pushNamed('home');
+                                      }
+                                    },
+                                  ),
                               ],
                             );
                           },
