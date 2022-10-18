@@ -46,33 +46,9 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                 children: [
                   FFButtonWidget(
                     onPressed: () async {
-                      if (textController!.text == 'iws4n1') {
-                        logFirebaseEvent('Button_navigate_to');
+                      logFirebaseEvent('Button_navigate_to');
 
-                        context.pushNamed('authentication');
-                      } else {
-                        logFirebaseEvent('Button_alert_dialog');
-                        await showDialog(
-                          context: context,
-                          builder: (alertDialogContext) {
-                            return AlertDialog(
-                              title: Text('Hm. How Could You Get it Wrong?'),
-                              content: Text(
-                                  'It was so easy! Or, does the question have nothing to do with the answer? Is there any rhyme or reason? What was the goal? What is life?'),
-                              actions: [
-                                TextButton(
-                                  onPressed: () =>
-                                      Navigator.pop(alertDialogContext),
-                                  child: Text('Try Again'),
-                                ),
-                              ],
-                            );
-                          },
-                        );
-                        logFirebaseEvent('Button_navigate_to');
-
-                        context.pushNamed('home');
-                      }
+                      context.pushNamed('create_blog_post');
                     },
                     text: 'Create',
                     options: FFButtonOptions(
