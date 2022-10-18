@@ -25,6 +25,7 @@ class _ViewBlogpostWidgetState extends State<ViewBlogpostWidget> {
     super.initState();
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'view_blogpost'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

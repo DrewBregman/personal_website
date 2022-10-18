@@ -27,6 +27,7 @@ class _CreateBlogPostWidgetState extends State<CreateBlogPostWidget> {
         parameters: {'screen_name': 'create_blog_post'});
     textController1 = TextEditingController();
     textController2 = TextEditingController();
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

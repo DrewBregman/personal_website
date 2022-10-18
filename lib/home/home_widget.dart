@@ -1,4 +1,5 @@
 import '../backend/backend.dart';
+import '../components/settings_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -19,6 +20,7 @@ class _HomeWidgetState extends State<HomeWidget> {
   void initState() {
     super.initState();
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'home'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -46,8 +48,23 @@ class _HomeWidgetState extends State<HomeWidget> {
                         color: FlutterFlowTheme.of(context).secondaryColor,
                         size: 30,
                       ),
-                      onPressed: () {
-                        print('IconButton pressed ...');
+                      onPressed: () async {
+                        logFirebaseEvent('IconButton_bottom_sheet');
+                        await showModalBottomSheet(
+                          isScrollControlled: true,
+                          backgroundColor: Colors.transparent,
+                          context: context,
+                          builder: (context) {
+                            return Padding(
+                              padding: MediaQuery.of(context).viewInsets,
+                              child: Container(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.9,
+                                child: SettingsWidget(),
+                              ),
+                            );
+                          },
+                        ).then((value) => setState(() {}));
                       },
                     ),
                   ],
