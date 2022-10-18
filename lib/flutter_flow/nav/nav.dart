@@ -87,12 +87,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => AuthenticationWidget(),
             ),
             FFRoute(
-              name: 'create_blog_post',
-              path: 'createBlogPost',
-              requireAuth: true,
-              builder: (context, params) => CreateBlogPostWidget(),
-            ),
-            FFRoute(
               name: 'view_blogpost',
               path: 'viewBlogpost',
               builder: (context, params) => ViewBlogpostWidget(
@@ -101,9 +95,24 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
+              name: 'create_blog_post',
+              path: 'createBlogPost',
+              requireAuth: true,
+              builder: (context, params) => CreateBlogPostWidget(),
+            ),
+            FFRoute(
               name: 'forgot_password',
               path: 'forgotPassword',
               builder: (context, params) => ForgotPasswordWidget(),
+            ),
+            FFRoute(
+              name: 'edit_blogpost',
+              path: 'editBlogpost',
+              requireAuth: true,
+              builder: (context, params) => EditBlogpostWidget(
+                blogPostReference: params.getParam('blogPostReference',
+                    ParamType.DocumentReference, false, 'blog_post'),
+              ),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
