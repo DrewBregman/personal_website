@@ -27,6 +27,7 @@ class _AuthenticationWidgetState extends State<AuthenticationWidget> {
     passwordVisibility = false;
     logFirebaseEvent('screen_view',
         parameters: {'screen_name': 'authentication'});
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override

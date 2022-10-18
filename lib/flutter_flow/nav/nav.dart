@@ -67,14 +67,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
-      errorBuilder: (context, _) =>
-          appStateNotifier.loggedIn ? CreateBlogPostWidget() : HomeWidget(),
+      errorBuilder: (context, _) => appStateNotifier.loggedIn
+          ? CreateBlogPostWidget()
+          : SingleTimeAuthenticationWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) =>
-              appStateNotifier.loggedIn ? CreateBlogPostWidget() : HomeWidget(),
+          builder: (context, _) => appStateNotifier.loggedIn
+              ? CreateBlogPostWidget()
+              : SingleTimeAuthenticationWidget(),
           routes: [
             FFRoute(
               name: 'home',
@@ -99,6 +101,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 blogPostReference: params.getParam('blogPostReference',
                     ParamType.DocumentReference, false, 'blog_post'),
               ),
+            ),
+            FFRoute(
+              name: 'single_time_authentication',
+              path: 'singleTimeAuthentication',
+              builder: (context, params) => SingleTimeAuthenticationWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ).toRoute(appStateNotifier),
@@ -258,7 +265,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/home';
+            return '/singleTimeAuthentication';
           }
           return null;
         },
