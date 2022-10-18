@@ -1,3 +1,4 @@
+import '../auth/firebase_user_provider.dart';
 import '../backend/backend.dart';
 import '../components/settings_widget.dart';
 import '../flutter_flow/flutter_flow_icon_button.dart';
@@ -188,6 +189,32 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         ),
                                   ),
                                 ),
+                                if (loggedIn)
+                                  FlutterFlowIconButton(
+                                    borderColor: Colors.transparent,
+                                    borderRadius: 30,
+                                    borderWidth: 1,
+                                    buttonSize: 60,
+                                    icon: Icon(
+                                      Icons.edit_outlined,
+                                      color: Color(0xFFE538E5),
+                                      size: 30,
+                                    ),
+                                    onPressed: () async {
+                                      logFirebaseEvent(
+                                          'IconButton_navigate_to');
+
+                                      context.pushNamed(
+                                        'edit_blogpost',
+                                        queryParams: {
+                                          'blogPostReference': serializeParam(
+                                            listViewBlogPostRecord.reference,
+                                            ParamType.DocumentReference,
+                                          ),
+                                        }.withoutNulls,
+                                      );
+                                    },
+                                  ),
                               ],
                             );
                           },
