@@ -49,43 +49,6 @@ class _HomeWidgetState extends State<HomeWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
-                      children: [
-                        FlutterFlowIconButton(
-                          borderColor: Colors.transparent,
-                          borderRadius: 30,
-                          borderWidth: 1,
-                          buttonSize: 60,
-                          icon: Icon(
-                            Icons.color_lens,
-                            color: FlutterFlowTheme.of(context).secondaryColor,
-                            size: 30,
-                          ),
-                          onPressed: () async {
-                            logFirebaseEvent('IconButton_bottom_sheet');
-                            await showModalBottomSheet(
-                              isScrollControlled: true,
-                              backgroundColor: Colors.transparent,
-                              context: context,
-                              builder: (context) {
-                                return Padding(
-                                  padding: MediaQuery.of(context).viewInsets,
-                                  child: Container(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.9,
-                                    child: SettingsWidget(),
-                                  ),
-                                );
-                              },
-                            ).then((value) => setState(() {}));
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(12, 12, 12, 12),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Align(
@@ -134,6 +97,39 @@ class _HomeWidgetState extends State<HomeWidget> {
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.normal,
                                       ),
+                                ),
+                                FlutterFlowIconButton(
+                                  borderColor: Colors.transparent,
+                                  borderRadius: 30,
+                                  borderWidth: 1,
+                                  buttonSize: 60,
+                                  icon: Icon(
+                                    Icons.color_lens,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryColor,
+                                    size: 30,
+                                  ),
+                                  onPressed: () async {
+                                    logFirebaseEvent('IconButton_bottom_sheet');
+                                    await showModalBottomSheet(
+                                      isScrollControlled: true,
+                                      backgroundColor: Colors.transparent,
+                                      context: context,
+                                      builder: (context) {
+                                        return Padding(
+                                          padding:
+                                              MediaQuery.of(context).viewInsets,
+                                          child: Container(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.9,
+                                            child: SettingsWidget(),
+                                          ),
+                                        );
+                                      },
+                                    ).then((value) => setState(() {}));
+                                  },
                                 ),
                               ],
                             ),

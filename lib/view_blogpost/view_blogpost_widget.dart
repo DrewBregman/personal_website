@@ -97,8 +97,7 @@ class _ViewBlogpostWidgetState extends State<ViewBlogpostWidget> {
                             },
                             child: Card(
                               clipBehavior: Clip.antiAliasWithSaveLayer,
-                              color:
-                                  FlutterFlowTheme.of(context).secondaryColor,
+                              color: FlutterFlowTheme.of(context).primaryColor,
                               elevation: 3,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30),
