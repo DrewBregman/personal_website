@@ -217,6 +217,7 @@ class _CreateBlogPostWidgetState extends State<CreateBlogPostWidget> {
                             autofocus: true,
                             obscureText: false,
                             decoration: InputDecoration(
+                              isDense: true,
                               hintText: 'Expel the Thoughts...',
                               hintStyle: FlutterFlowTheme.of(context)
                                   .subtitle1
@@ -225,7 +226,7 @@ class _CreateBlogPostWidgetState extends State<CreateBlogPostWidget> {
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryText,
                                   ),
-                              enabledBorder: UnderlineInputBorder(
+                              enabledBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
                                   width: 1,
@@ -235,7 +236,7 @@ class _CreateBlogPostWidgetState extends State<CreateBlogPostWidget> {
                                   topRight: Radius.circular(4.0),
                                 ),
                               ),
-                              focusedBorder: UnderlineInputBorder(
+                              focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
                                   width: 1,
@@ -245,7 +246,7 @@ class _CreateBlogPostWidgetState extends State<CreateBlogPostWidget> {
                                   topRight: Radius.circular(4.0),
                                 ),
                               ),
-                              errorBorder: UnderlineInputBorder(
+                              errorBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
                                   width: 1,
@@ -255,7 +256,7 @@ class _CreateBlogPostWidgetState extends State<CreateBlogPostWidget> {
                                   topRight: Radius.circular(4.0),
                                 ),
                               ),
-                              focusedErrorBorder: UnderlineInputBorder(
+                              focusedErrorBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   color: Color(0x00000000),
                                   width: 1,
@@ -275,6 +276,7 @@ class _CreateBlogPostWidgetState extends State<CreateBlogPostWidget> {
                                           .tertiaryColor,
                                     ),
                             textAlign: TextAlign.start,
+                            maxLines: null,
                           ),
                         ),
                       ),
