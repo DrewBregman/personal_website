@@ -1,26 +1,23 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:rxdart/rxdart.dart';
 
-import 'auth_util.dart';
-
-class PersonalWebsiteFirebaseUser {
-  PersonalWebsiteFirebaseUser(this.user);
+class DrewBregmanFirebaseUser {
+  DrewBregmanFirebaseUser(this.user);
   User? user;
   bool get loggedIn => user != null;
 }
 
-PersonalWebsiteFirebaseUser? currentUser;
+DrewBregmanFirebaseUser? currentUser;
 bool get loggedIn => currentUser?.loggedIn ?? false;
-Stream<PersonalWebsiteFirebaseUser> personalWebsiteFirebaseUserStream() =>
+Stream<DrewBregmanFirebaseUser> drewBregmanFirebaseUserStream() =>
     FirebaseAuth.instance
         .authStateChanges()
         .debounce((user) => user == null && !loggedIn
             ? TimerStream(true, const Duration(seconds: 1))
             : Stream.value(user))
-        .map<PersonalWebsiteFirebaseUser>(
+        .map<DrewBregmanFirebaseUser>(
       (user) {
-        currentUser = PersonalWebsiteFirebaseUser(user);
-        updateUserJwtTimer(user);
+        currentUser = DrewBregmanFirebaseUser(user);
         return currentUser!;
       },
     );
