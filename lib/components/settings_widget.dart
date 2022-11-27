@@ -145,7 +145,6 @@ class _SettingsWidgetState extends State<SettingsWidget> {
                     ),
                   ),
                   style: FlutterFlowTheme.of(context).bodyText1,
-                  maxLines: 1,
                 ),
               ),
             ),

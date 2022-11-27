@@ -19,8 +19,8 @@ export 'serialization_util.dart';
 const kTransitionInfoKey = '__transition_info__';
 
 class AppStateNotifier extends ChangeNotifier {
-  PersonalWebsiteFirebaseUser? initialUser;
-  PersonalWebsiteFirebaseUser? user;
+  DrewBregmanFirebaseUser? initialUser;
+  DrewBregmanFirebaseUser? user;
   bool showSplashImage = true;
   String? _redirectLocation;
 
@@ -45,7 +45,7 @@ class AppStateNotifier extends ChangeNotifier {
   /// to perform subsequent actions (such as navigation) afterwards.
   void updateNotifyOnAuthChange(bool notify) => notifyOnAuthChange = notify;
 
-  void update(PersonalWebsiteFirebaseUser newUser) {
+  void update(DrewBregmanFirebaseUser newUser) {
     initialUser ??= newUser;
     user = newUser;
     // Refresh the app on auth change unless explicitly marked otherwise.
@@ -288,7 +288,7 @@ class FFRoute {
               ? Container(
                   color: Colors.transparent,
                   child: Image.asset(
-                    'assets/images/profile_picture_(1).jpeg',
+                    'assets/images/galaxy_ic.jpeg',
                     fit: BoxFit.cover,
                   ),
                 )

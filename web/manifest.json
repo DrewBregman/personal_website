@@ -1,6 +1,6 @@
 {
-    "name": "Personal Website",
-    "short_name": "Personal Website",
+    "name": "DrewBregman",
+    "short_name": "DrewBregman",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

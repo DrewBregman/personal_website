@@ -230,8 +230,12 @@ class _EditBlogpostWidgetState extends State<EditBlogpostWidget> {
                                         ),
                                       ),
                                     ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyText1,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyText1
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: Color(0xFF60E5EE),
+                                        ),
                                   ),
                                 ),
                               ],

@@ -32,7 +32,7 @@ class _MyAppState extends State<MyApp> {
   Locale? _locale;
   ThemeMode _themeMode = FlutterFlowTheme.themeMode;
 
-  late Stream<PersonalWebsiteFirebaseUser> userStream;
+  late Stream<DrewBregmanFirebaseUser> userStream;
 
   late AppStateNotifier _appStateNotifier;
   late GoRouter _router;
@@ -44,8 +44,9 @@ class _MyAppState extends State<MyApp> {
     super.initState();
     _appStateNotifier = AppStateNotifier();
     _router = createRouter(_appStateNotifier);
-    userStream = personalWebsiteFirebaseUserStream()
+    userStream = drewBregmanFirebaseUserStream()
       ..listen((user) => _appStateNotifier.update(user));
+    jwtTokenStream.listen((_) {});
     Future.delayed(
       Duration(seconds: 1),
       () => _appStateNotifier.stopShowingSplashImage(),
@@ -59,8 +60,10 @@ class _MyAppState extends State<MyApp> {
     super.dispose();
   }
 
-  void setLocale(String language) =>
-      setState(() => _locale = createLocale(language));
+  void setLocale(String language) {
+    setState(() => _locale = createLocale(language));
+  }
+
   void setThemeMode(ThemeMode mode) => setState(() {
         _themeMode = mode;
         FlutterFlowTheme.saveThemeMode(mode);
@@ -69,7 +72,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Personal Website',
+      title: 'DrewBregman',
       localizationsDelegates: [
         FFLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,

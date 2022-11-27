@@ -5,7 +5,7 @@
 
 
    <application
-        android:label="Personal Website"
+        android:label="Drew's Writings"
         tools:replace="android:label"
         android:icon="@mipmap/ic_launcher"
         android:requestLegacyExternalStorage="true">
@@ -45,7 +45,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="drewbregman" android:host="personalwebsite.com" />
+                <data android:scheme="drewbregman" android:host="drewbregman.com" />
             </intent-filter>
 
         </activity>

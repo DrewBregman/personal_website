@@ -189,82 +189,93 @@ class _CreateBlogPostWidgetState extends State<CreateBlogPostWidget> {
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(16, 0, 16, 0),
-                child: ClipRRect(
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 0.9,
-                    decoration: BoxDecoration(),
-                    child: Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 12),
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 0.9,
-                        child: TextFormField(
-                          controller: textController2,
-                          onChanged: (_) => EasyDebounce.debounce(
-                            'textController2',
-                            Duration(milliseconds: 2000),
-                            () => setState(() {}),
-                          ),
-                          autofocus: true,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            hintText: 'Expel the Thoughts...',
-                            hintStyle:
+                child: Material(
+                  color: Colors.transparent,
+                  elevation: 3,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.9,
+                      height: MediaQuery.of(context).size.height * 0.75,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 12, 0, 12),
+                        child: Container(
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          child: TextFormField(
+                            controller: textController2,
+                            onChanged: (_) => EasyDebounce.debounce(
+                              'textController2',
+                              Duration(milliseconds: 2000),
+                              () => setState(() {}),
+                            ),
+                            autofocus: true,
+                            obscureText: false,
+                            decoration: InputDecoration(
+                              hintText: 'Expel the Thoughts...',
+                              hintStyle: FlutterFlowTheme.of(context)
+                                  .subtitle1
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                  ),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 1,
+                                ),
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(4.0),
+                                  topRight: Radius.circular(4.0),
+                                ),
+                              ),
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 1,
+                                ),
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(4.0),
+                                  topRight: Radius.circular(4.0),
+                                ),
+                              ),
+                              errorBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 1,
+                                ),
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(4.0),
+                                  topRight: Radius.circular(4.0),
+                                ),
+                              ),
+                              focusedErrorBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Color(0x00000000),
+                                  width: 1,
+                                ),
+                                borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(4.0),
+                                  topRight: Radius.circular(4.0),
+                                ),
+                              ),
+                              contentPadding:
+                                  EdgeInsetsDirectional.fromSTEB(16, 0, 16, 12),
+                            ),
+                            style:
                                 FlutterFlowTheme.of(context).subtitle1.override(
                                       fontFamily: 'Poppins',
                                       color: FlutterFlowTheme.of(context)
-                                          .secondaryText,
+                                          .tertiaryColor,
                                     ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            focusedBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            errorBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            focusedErrorBorder: UnderlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 1,
-                              ),
-                              borderRadius: const BorderRadius.only(
-                                topLeft: Radius.circular(4.0),
-                                topRight: Radius.circular(4.0),
-                              ),
-                            ),
-                            contentPadding:
-                                EdgeInsetsDirectional.fromSTEB(16, 0, 16, 12),
+                            textAlign: TextAlign.start,
                           ),
-                          style: FlutterFlowTheme.of(context)
-                              .subtitle1
-                              .override(
-                                fontFamily: 'Poppins',
-                                color:
-                                    FlutterFlowTheme.of(context).tertiaryColor,
-                              ),
-                          textAlign: TextAlign.start,
                         ),
                       ),
                     ),
